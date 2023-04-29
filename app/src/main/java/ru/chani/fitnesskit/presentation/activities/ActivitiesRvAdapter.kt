@@ -21,12 +21,14 @@ class ActivitiesRvAdapter : RecyclerView.Adapter<ActivitiesRvAdapter.CustomViewH
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CustomViewHolder {
         val binding = when (viewType) {
             ItemViewType.Date.VIEW_TYPE_ID -> DateCardBinding.inflate(
-                LayoutInflater.from(
-                    parent.context
-                )
+                LayoutInflater.from(parent.context),
+                parent,
+                false
             )
             ItemViewType.Training.VIEW_TYPE_ID -> TrainingItemCardBinding.inflate(
-                LayoutInflater.from(parent.context)
+                LayoutInflater.from(parent.context),
+                parent,
+                false
             )
             else -> throw RuntimeException("Unknown view type: $viewType")
         }
