@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/activities"
+        android:icon="@drawable/baseline_activities"
+        android:title="@string/activities"
+        app:showAsAction="ifRoom"
+        />
+
+    <item
+        android:id="@+id/applications"
+        android:icon="@drawable/baseline_applications"
+        android:title="@string/applications"
+        app:showAsAction="ifRoom"
+        />
+
+    <item
+        android:id="@+id/add"
+        android:icon="@drawable/baseline_add"
+        android:title="@string/add"
+        app:showAsAction="ifRoom"
+        />
+
+    <item
+        android:id="@+id/chat"
+        android:icon="@drawable/baseline_chat"
+        android:title="@string/chat"
+        app:showAsAction="ifRoom"
+        />
+
+    <item
+        android:id="@+id/more"
+        android:icon="@drawable/baseline_more_horiz"
+        android:title="@string/more"
+        app:showAsAction="ifRoom"
+        />
+
+</menu>
