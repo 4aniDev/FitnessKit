@@ -4,7 +4,7 @@ import ru.chani.fitnesskit.domain.Repository
 import ru.chani.fitnesskit.domain.model.TrainingItem
 
 class GetMapOfTrainingByDaysUseCase(private val repository: Repository) {
-    suspend operator fun invoke(): Map<String, MutableList<TrainingItem>> {
+    suspend operator fun invoke(repository: Repository): Map<String, List<TrainingItem>> {
 
         val listOfTrainingItems = repository.getListOfTrainings()
         val map = listTrainingsToMapTrainings(listOfTrainingItems)
