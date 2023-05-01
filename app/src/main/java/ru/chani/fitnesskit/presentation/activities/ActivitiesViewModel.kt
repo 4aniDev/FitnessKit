@@ -10,6 +10,8 @@ import ru.chani.fitnesskit.data.RepositoryImpl
 import ru.chani.fitnesskit.domain.model.TrainingItem
 import ru.chani.fitnesskit.domain.usecase.GetMapOfTrainingByDaysUseCase
 import ru.chani.fitnesskit.presentation.activities.model.ItemViewType
+import java.text.SimpleDateFormat
+import java.util.*
 
 class ActivitiesViewModel : ViewModel() {
 
@@ -32,12 +34,27 @@ class ActivitiesViewModel : ViewModel() {
 //        Inflate listOfItemsViewType
         map.forEach {
 //            Key is a date
-            listOfItemsViewType.add(ItemViewType.Date(date = it.key))
+            listOfItemsViewType.add(ItemViewType.Date(date = convertDate(it.key)))
 //            Value is a list of Training Items
             it.value.forEach { trainingItem ->
                 listOfItemsViewType.add(ItemViewType.Training(trainingItem = trainingItem))
             }
         }
         _listOfViewItems.postValue(listOfItemsViewType)
+    }
+
+    private fun convertDate(date: String): String {
+        val dateList = date.split("-")
+        val year = dateList[0].toInt()
+        val month = dateList[1].toInt()
+        val day = dateList[2].toInt()
+
+        val calendar = Calendar.getInstance()
+        calendar.set(year, month, day)
+//        val simpleDateFormat = SimpleDateFormat("EEEE.LLLL.yyyy KK:mm:ss aaa z")
+        val simpleDateFormat = SimpleDateFormat("EEEE, dd MMMM")
+        val convertedDate = simpleDateFormat.format(calendar.time).toString()
+
+        return convertedDate
     }
 }
